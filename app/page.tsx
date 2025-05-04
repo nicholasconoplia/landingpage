@@ -6,6 +6,52 @@ import { Badge } from "@/components/ui/badge"
 import { DynamicThreeIPhone } from "@/components/three-iphone"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { MobileMenu } from "@/components/mobile-menu"
+import React, { useState } from "react"
+import { CopyButton } from "@/components/ui/CopyButton"
+
+const canvoEmailTemplate = `Subject: Request for Canvas Access Token for Canvo App
+
+Dear [IT Support / Canvas Administrator's Name],
+
+I am a student at [Your University Name] and recently downloaded the Canvo app to help me stay organized with my coursework. I often find Canvas overwhelming and difficult to keep track of all my assignments, deadlines, and course information in one place.
+
+Canvo promises to simplify this process by automatically organizing my tasks and deadlines, but it requires access to my Canvas access token. Unfortunately, I do not currently have access to generate an access token from my account.
+
+I am requesting your assistance in enabling access token generation for my account so I can use Canvo to:
+- Automatically sync all my assignments, quizzes, and deadlines
+- Receive smart reminders and visual task calendars
+- Stay on top of my coursework and reduce stress
+
+I understand that access token usage is subject to security and policy considerations. I want to assure you that:
+- The app will only access data tied to my personal Canvas account
+- No third-party data will be collected or shared
+- The access token will be stored securely and used solely for academic purposes
+- I am happy to follow any additional guidelines or submit a formal request if needed
+
+If student access is restricted, I would greatly appreciate your advice on whether there's an alternative path—such as faculty sponsorship or a sandbox environment—that would allow me to move forward responsibly.
+
+Thank you for considering my request. If you have any questions about Canvo, you can visit https://canvo.vercel.app, contact support at canvohelp@gmail.com, or use the support page at https://canvo.vercel.app/support.
+
+Best regards,
+[Your Full Name]
+[Your Student ID]
+[Your Email Address]
+[Your Degree Program / Faculty]
+
+Canvo Privacy Policy Highlights:
+- Your data never leaves your device. Everything is stored locally for maximum privacy.
+- Your Canvas access token is stored securely and encrypted on your local device only.
+- You can remove your access token at any time through the app settings.
+- All your tasks, assignments, and settings are stored locally on your device.
+- Course information is synced directly between your device and Canvas.
+- No task or assignment data is ever sent to our servers.
+- We do not collect any personal information or track your usage.
+- We do not use analytics or tracking tools.
+- All communication is directly between your device and Canvas.
+- You have complete control: uninstall the app to remove all stored data.
+- The only external service Canvo interacts with is Canvas LMS, and this communication happens directly from your device using your provided access token.
+
+Full policy: https://canvo.vercel.app/privacy`
 
 export default function Home() {
   return (
@@ -343,6 +389,35 @@ export default function Home() {
             <div className="mx-auto max-w-3xl">
               <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">Quick Questions</h2>
               <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-0">
+                  <AccordionTrigger className="text-sm sm:text-base">I use Canvas, but what if I don't have access to an API key?</AccordionTrigger>
+                  <AccordionContent className="text-sm sm:text-base">
+                    If you use Canvas, you have an API key, however some universities don't let students access theirs. To get one you should contact your university. What you can do:
+                    <ol className="list-decimal ml-6 mt-2 space-y-2">
+                      <li>
+                        <strong>Contact your university's IT support or Canvas administrator:</strong><br />
+                        Explain your need for the API key and access token, and inquire about any alternative solutions or permissions that might be available.
+                      </li>
+                      <li>
+                        <strong>If you're a student:</strong><br />
+                        You might need to find a faculty member to sponsor your request, as some institutions require faculty approval for student access to the Canvas API.
+                      </li>
+                      <li>
+                        <strong>Understand your permissions:</strong><br />
+                        API access tokens are tied to your user account's permissions in Canvas. You'll only be able to access data and features that your account's role allows.
+                      </li>
+                      <li>
+                        <strong>Be prepared for a "no":</strong><br />
+                        Many universities are hesitant to grant API access to students due to security concerns and the potential for misuse.
+                      </li>
+                    </ol>
+                    <p className="mt-4 font-semibold flex items-center gap-2">Here is a custom email (or script if you are going to call them) you can write to ask for permission: <span role="img" aria-label="point down">👇</span></p>
+                    <div className="flex gap-2 mt-2">
+                      <CopyButton text={canvoEmailTemplate} />
+                      <OpenInEmailButton />
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-sm sm:text-base">How does Canvo connect to Canvas?</AccordionTrigger>
                   <AccordionContent className="text-sm sm:text-base">
@@ -398,5 +473,22 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  )
+}
+
+function OpenInEmailButton() {
+  const subject = "Request for Canvas Access Token for Canvo App"
+  const body = `Dear [IT Support / Canvas Administrator's Name],\n\nI am a student at [Your University Name] and recently downloaded the Canvo app to help me stay organized with my coursework. I often find Canvas overwhelming and difficult to keep track of all my assignments, deadlines, and course information in one place.\n\nCanvo promises to simplify this process by automatically organizing my tasks and deadlines, but it requires access to my Canvas access token. Unfortunately, I do not currently have access to generate an access token from my account.\n\nI am requesting your assistance in enabling access token generation for my account so I can use Canvo to:\n- Automatically sync all my assignments, quizzes, and deadlines\n- Receive smart reminders and visual task calendars\n- Stay on top of my coursework and reduce stress\n\nI understand that access token usage is subject to security and policy considerations. I want to assure you that:\n- The app will only access data tied to my personal Canvas account\n- No third-party data will be collected or shared\n- The access token will be stored securely and used solely for academic purposes\n- I am happy to follow any additional guidelines or submit a formal request if needed\n\nIf student access is restricted, I would greatly appreciate your advice on whether there's an alternative path—such as faculty sponsorship or a sandbox environment—that would allow me to move forward responsibly.\n\nThank you for considering my request. If you have any questions about Canvo, you can visit https://canvo.vercel.app, contact support at canvohelp@gmail.com, or use the support page at https://canvo.vercel.app/support.\n\nBest regards,\n[Your Full Name]\n[Your Student ID]\n[Your Email Address]\n[Your Degree Program / Faculty]\n\nCanvo Privacy Policy Highlights:\n- Your data never leaves your device. Everything is stored locally for maximum privacy.\n- Your Canvas access token is stored securely and encrypted on your local device only.\n- You can remove your access token at any time through the app settings.\n- All your tasks, assignments, and settings are stored locally on your device.\n- Course information is synced directly between your device and Canvas.\n- No task or assignment data is ever sent to our servers.\n- We do not collect any personal information or track your usage.\n- We do not use analytics or tracking tools.\n- All communication is directly between your device and Canvas.\n- You have complete control: uninstall the app to remove all stored data.\n- The only external service Canvo interacts with is Canvas LMS, and this communication happens directly from your device using your provided access token.\n\nFull policy: https://canvo.vercel.app/privacy`
+  const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  return (
+    <a
+      href={mailto}
+      className="mt-2 px-3 py-1 bg-primary text-primary-foreground rounded text-xs font-medium hover:bg-primary/80 transition-colors border border-primary/30 flex items-center"
+      aria-label="Open in email client"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Open in Email
+    </a>
   )
 }
