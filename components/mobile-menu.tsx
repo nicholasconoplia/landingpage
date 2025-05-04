@@ -40,6 +40,13 @@ export function MobileMenu() {
               Real Talk
             </Link>
             <Link
+              href="/access-token"
+              className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Access Token Help
+            </Link>
+            <Link
               href="#faq"
               className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
               onClick={() => setIsOpen(false)}

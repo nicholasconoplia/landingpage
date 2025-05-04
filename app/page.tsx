@@ -80,6 +80,9 @@ export default function Home() {
             <Link href="#real-talk" className="text-sm font-medium hover:text-primary">
               Real Talk
             </Link>
+            <Link href="/access-token" className="text-sm font-medium hover:text-primary">
+              Access Token Help
+            </Link>
             <Link href="#faq" className="text-sm font-medium hover:text-primary">
               FAQ
             </Link>
