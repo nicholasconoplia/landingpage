@@ -203,13 +203,15 @@ export default function Home() {
                 <div className="flex justify-center">
                   <div className="relative max-w-[280px] sm:max-w-sm mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-t from-muted via-transparent to-transparent -bottom-12 z-10" />
-                    <Image
-                      src="/images/import-demo.gif"
+                    <video
+                      src="/images/import-demo.mp4"
                       width={300}
                       height={600}
-                      alt="One-Click Canvas Import Demo"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="rounded-2xl shadow-lg mx-auto"
-                      priority
                     />
                   </div>
                 </div>
@@ -228,11 +230,14 @@ export default function Home() {
                 <div className="flex justify-center">
                   <div className="relative max-w-[280px] sm:max-w-sm mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-t from-muted via-transparent to-transparent -bottom-12 z-10" />
-                    <Image
-                      src="/images/prioritize-demo.gif"
+                    <video
+                      src="/images/prioritize-demo.mp4"
                       width={300}
                       height={600}
-                      alt="Task Organization Demo"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="rounded-2xl shadow-lg mx-auto"
                     />
                   </div>
@@ -252,11 +257,14 @@ export default function Home() {
                 <div className="flex justify-center">
                   <div className="relative max-w-[280px] sm:max-w-sm mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-t from-muted via-transparent to-transparent -bottom-12 z-10" />
-                    <Image
-                      src="/images/wheel-demo.gif"
+                    <video
+                      src="/images/wheel-demo.mp4"
                       width={300}
                       height={600}
-                      alt="Task Wheel Demo"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="rounded-2xl shadow-lg mx-auto"
                     />
                   </div>
